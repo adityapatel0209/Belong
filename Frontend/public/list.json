@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "isbn": "9780743273565",
+        "category": "Free",
+        "image": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        "id": 2,
+        "name": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "isbn": "9780061120084",
+        "category": "Free",
+        "image": "https://www.dramaticpublishing.com/media/catalog/product/cache/1/image/300x436/9df78eab33525d08d6e5fb8d27136e95/t/o/to_kill_a_mockingbird_cover-t34.jpg"
+    },
+    {
+        "id": 3,
+        "name": "1984",
+        "author": "George Orwell",
+        "isbn": "9780451524935",
+        "category": "Free",
+        "image": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "isbn": "9780486284736",
+        "category": "Free",
+        "image": "https://readaloudrevival.com/wp-content/uploads/2016/05/Pride-and-Prejudice.png.webp"
+    },
+    {
+        "id": 5,
+        "name": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "isbn": "9780316769488",
+        "category": "Free",
+        "image": "https://m.media-amazon.com/images/I/7108sdEUEGL._AC_UF1000,1000_QL80_.jpg"
+    }
+]
