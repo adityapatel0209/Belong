@@ -1,16 +1,27 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Banner from "../components/Banner";
-import Freebook from "../components/Freebook";
-import Footer from "../components/Footer";
+
+"use client";
+
+import { BackgroundBeams } from "../components/ui/background-beams";
+
+import { FeaturesSectionDemo } from "../components/Bento";
+import { FlipWordsDemo } from "../components/flipWords";
+
+
 
 function Home() {
   return (
     <>
+
       <Navbar />
-      <Banner />
-      <Freebook />
-      <Footer />
+      <FlipWordsDemo></FlipWordsDemo>
+      <FeaturesSectionDemo></FeaturesSectionDemo>
+      <div>
+        <BackgroundBeams />
+      </div>
+
+
     </>
   );
 }
