@@ -6,11 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./context/AuthProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <AuthProvider>
-      <div className="dark:bg-slate-900 dark:text-white">
-        <App />
-      </div>
-    </AuthProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename="/">
+      <AuthProvider>
+        <div className="bg-white text-gray-800">
+          <App />
+        </div>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
