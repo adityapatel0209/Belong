@@ -9,7 +9,7 @@ function Ai() {
         <>
             <div className="min-h-screen">
                 <Navbar />
-       
+                <BackgroundBeams />
                 <Aiui></Aiui>
 
             </div>

@@ -1,94 +1,95 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-    const [sticky, setSticky] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setSticky(true);
-            } else {
-                setSticky(false);
-            }
+            setIsScrolled(window.scrollY > 0);
         };
         window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const navItems = (
-        <>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/educate">Educate Yourself</a>
-            </li>
-            <li>
-                <a href="/ai">Chat Buddy </a>
-            </li>
-            <li>
-                <a href='/events'>Events</a>
-            </li>
-            <li>
-                <a href="/about">Government Resources</a>
-            </li>
-        </>
-    );
+    const navLinks = [
+        { path: "/", label: "Home" },
+        { path: "/educate", label: "Educate Yourself" },
+        { path: "/ai", label: "Chat Buddy" },
+        { path: "/events", label: "Events" },
+        { path: "/about", label: "Government Resources" }
+    ];
 
     return (
-        <>
-            <div
-                className={`max-w-screen-2xl rounded-[22px] container mx-auto md:px-30 px-4 bg-white text-gray-800 fixed top-0 left-0 right-0 z-50 ${
-                    sticky
-                        ? "sticky-navbar rounded-[22px] shadow-md bg-white duration-300 transition-all ease-in-out"
-                        : ""
-                }`}
-            >
-                <div className="navbar">
-                    <div className="navbar-start">
-                        <div className="dropdown">
-                            <div
-                                tabIndex={0}
-                                role="button"
-                                className="btn btn-ghost lg:hidden"
+        <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-7xl rounded-2xl ${
+            isScrolled 
+                ? "bg-background/80 backdrop-blur-md shadow-lg border border-white/20" 
+                : "bg-background/40 backdrop-blur-sm"
+        }`}>
+            <div className="px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center space-x-2">
+                        <img src="/man.png" alt="Logo" className="h-8 w-8" />
+                        <span className="text-xl font-bold text-gray-800">Belong.</span>
+                    </Link>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center space-x-8">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className="text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium"
                             >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M4 6h16M4 12h8m-8 6h16"
-                                    />
-                                </svg>
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                            >
-                                {navItems}
-                            </ul>
-                        </div>
-                        <a className="flex items-center text-2xl font-bold cursor-pointer">
-                            <img src="/man.png" alt="Logo" className="h-6 w-6 mr-2" />
-                            Belong.
-                        </a>
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
-                    <div className="navbar-end">
-                        <div className="navbar-center hidden lg:flex">
-                            <ul className="menu menu-horizontal px-1">{navItems}</ul>
-                        </div>
-                    </div>
+
+                    {/* Mobile menu button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden p-2 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-white/20 focus:outline-none transition-colors duration-200"
+                    >
+                        <svg
+                            className="h-6 w-6"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            {isMobileMenuOpen ? (
+                                <path d="M6 18L18 6M6 6l12 12" />
+                            ) : (
+                                <path d="M4 6h16M4 12h16M4 18h16" />
+                            )}
+                        </svg>
+                    </button>
                 </div>
+
+                {/* Mobile Navigation */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden">
+                        <div className="px-2 pt-2 pb-3 space-y-1 bg-background/90 backdrop-blur-md rounded-xl shadow-lg mt-2 border border-white/20">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-white/20 transition-colors duration-200"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
-        </>
+        </nav>
     );
 }
 

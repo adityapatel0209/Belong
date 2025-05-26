@@ -30,37 +30,35 @@ const itemVariants = {
 
 const BlogList = () => {
     return (
-        <div className="min-h-screen bg-[#f7fced]">
+        <div className="min-h-screen bg-background">
             {/* Hero Section with Background */}
-            <div className="relative w-full h-[40vh] bg-gradient-to-b from-[#4a7c59]/10 to-transparent">
-                <div className="absolute inset-0 overflow-hidden">
-                    <motion.div
-                        className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e8f5d6] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            x: [0, 30, 0],
-                            y: [0, -30, 0],
-                        }}
-                        transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
-                    <motion.div
-                        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#d4e9c5] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-                        animate={{
-                            scale: [1, 1.1, 1],
-                            x: [0, -30, 0],
-                            y: [0, 30, 0],
-                        }}
-                        transition={{
-                            duration: 10,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
-                </div>
+            <div className="relative w-full h-[40vh]">
+                <motion.div
+                    className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e0edd3] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        x: [0, 30, 0],
+                        y: [0, -30, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#e0edd3] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        x: [0, -30, 0],
+                        y: [0, 30, 0],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
             </div>
 
             {/* Main Content */}

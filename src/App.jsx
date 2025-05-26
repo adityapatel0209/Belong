@@ -14,7 +14,7 @@ function App() {
   const [authUser] = useAuth();
 
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-background text-gray-800">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/educate" element={<BlogPage />} />

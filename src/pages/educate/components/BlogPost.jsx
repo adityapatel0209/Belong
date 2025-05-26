@@ -21,12 +21,12 @@ const BlogPost = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#f7fced] via-[#e8f5d6] to-[#f7fced]">
-            {/* Hero Section with Gradient Background */}
-            <div className="relative w-full h-[30vh] bg-gradient-to-b from-[#4a7c59]/20 via-[#4a7c59]/10 to-transparent">
+        <div className="min-h-screen bg-background">
+            {/* Hero Section with Background */}
+            <div className="relative w-full h-[30vh]">
                 <div className="absolute inset-0 overflow-hidden">
                     <motion.div
-                        className="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-[#e8f5d6] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
+                        className="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-[#e0edd3] rounded-full mix-blend-multiply filter blur-3xl opacity-30"
                         animate={{
                             scale: [1, 1.2, 1],
                             x: [0, 30, 0],

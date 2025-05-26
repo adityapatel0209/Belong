@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter basename="/">
       <AuthProvider>
-        <div className="bg-white text-gray-800">
+        <div className="bg-background text-gray-800">
           <App />
         </div>
       </AuthProvider>

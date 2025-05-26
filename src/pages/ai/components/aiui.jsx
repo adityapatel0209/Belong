@@ -102,7 +102,7 @@ const Aiui = () => {
     };
 
     return (
-        <div className="flex flex-col h-[calc(100vh-64px)] mt-16 bg-[#f7fced]">
+        <div className="flex flex-col h-[calc(100vh-64px)] bg-background">
             <div className="flex-1 container mx-auto px-4 py-4 max-w-4xl">
                 <div className="bg-white/30 backdrop-blur-lg rounded-2xl shadow-xl h-full flex flex-col border border-white/30">
                     <div className="p-3 border-b border-white/30">
